@@ -1,4 +1,5 @@
 import React from 'react'
+import { ListGroup } from 'react-bootstrap'
 import { useContacts } from '../contexts/ContactsProvider'
 
 export default function Contacts () {
@@ -6,8 +7,14 @@ export default function Contacts () {
     console.log(contacts)
 
     return (
-        <div>
-            Contacts
-        </div>
+        <ListGroup variant='flush'>
+            {contacts.map((contact) => {
+                return (
+                    <ListGroup.Item key={contact.id}>
+                        {contact.name}
+                    </ListGroup.Item>
+                )
+            })}
+        </ListGroup>
     )
 }
